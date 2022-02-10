@@ -66,7 +66,7 @@
 
 
 
-let type = ["brand", "duotone", "light", "regular", "solid"];
+let type = ["brands", "duotone", "light", "regular", "solid"];
 
 //Print Global Variable
 console.log(v5)
