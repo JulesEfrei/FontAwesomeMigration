@@ -149,9 +149,9 @@ function compare(item, type) {
     elm6.src = icon6
 
 
-    elm5.style.width = "40px"
+    elm5.style.height = "40px"
     elm5.classList.add("my-3")
-    elm6.style.width = "40px"
+    elm6.style.height = "40px"
     elm6.classList.add("my-3")
 
     container5.appendChild(elm5)
