@@ -1,3 +1,8 @@
+var change_count = 0
+var equal_count = 0
+var not_found_count = 0
+
+
 //Search icon by name in v6
 function exist(icon){
 
@@ -21,15 +26,18 @@ let valueV6 = Object.values(v6["regular"])
 
 
 //Each icon
-for(let i = 0; i < 200; i++) { //keyV5.length
+for(let i = 0; i < keyV5.length; i++) { //keyV5.length
 
     //If V5 name = V6 name
     if(exist(keyV5[i]) != -1) {
 
         //Render icon
         compare(keyV5[i], `[ ${ alias(keyV5[i]) } ]`)
+        equal_count ++
 
     } else {
+
+        let find = false
 
         //Search in changed name array
         changed_name.forEach(elm => {
@@ -39,16 +47,31 @@ for(let i = 0; i < 200; i++) { //keyV5.length
 
                 //Render icon
                 compare(keyV5[i], `[ ${ alias(elm["v6"]) } ]`, elm["v6"])
+                find = true
+                change_count ++
 
             }
 
         })
+
+        //If not found
+        if(find == false) {
+
+            notAvailable(keyV5[i])
+            not_found_count ++
+        }
         
 
     }
 
 
 }
+
+console.log(`Theoric : ${keyV5.length }`)
+console.log(`Equal : ${ equal_count }`)
+console.log(`Change : ${ change_count }`)
+console.log(`Not found : ${ not_found_count }`)
+console.log(`Absolute : ${ equal_count + change_count + not_found_count }`)
 
 
 //Display icon in right section
@@ -62,9 +85,9 @@ function notAvailable(item) {
         let elm = document.createElement("img");
         elm.src = icon
 
-        elm.style.width = "20px"
-        elm.style.height = "20px"
-        elm.classList.add("p-1")
+        elm.style.width = "40px"
+        elm.style.height = "40px"
+        elm.classList.add("p-2")
 
         container.appendChild(elm)
     
