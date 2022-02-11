@@ -1,211 +1,139 @@
-/*
+//Search icon by name in v6
+function exist(icon){
 
-    iconsV5 = {
-        "regular" : {
-            "name": [Properties],
-            "name2": [Properties] 
-        }
-        "solid" : {
-            "name": [Properties],
-            "name2": [Properties] 
-        }
-        "light" : {
-            "name": [Properties],
-            "name2": [Properties] 
-        }
-        "brand" : {
-            "name": [Properties],
-            "name2": [Properties] 
-        }
-        "duotone" : {
-            "name": [Properties],
-            "name2": [Properties] 
-        }
-    }
+    return keyV6.findIndex(elm => elm == icon)
 
-    iconsV6 = {
-        "regular" : {
-            "name": [Properties],
-            "name2": [Properties] 
-        }
-        "solid" : {
-            "name": [Properties],
-            "name2": [Properties] 
-        }
-        "light" : {
-            "name": [Properties],
-            "name2": [Properties] 
-        }
-        "brand" : {
-            "name": [Properties],
-            "name2": [Properties] 
-        }
-        "duotone" : {
-            "name": [Properties],
-            "name2": [Properties] 
-        }
-    }
+}
+
+//Search alias
+function alias(icon) {
+
+    return Object.values(v6["regular"])[exist(icon)][2]
+
+}
 
 
-    foreach type :
+let keyV5 = Object.keys(v5["regular"])
+let keyV6 = Object.keys(v6["regular"])
 
-        foreach nom :
-            if nomV5.path == nomV6.path:
-                pass
-            else:
-                nom.push(changeArray)
+let valueV5 = Object.values(v5["regular"])
+let valueV6 = Object.values(v6["regular"])
 
 
-    function render:
+//Each icon
+for(let i = 0; i < 200; i++) { //keyV5.length
 
-        //Render all changeArray
+    //If V5 name = V6 name
+    if(exist(keyV5[i]) != -1) {
 
+        //Render icon
+        compare(keyV5[i], `[ ${ alias(keyV5[i]) } ]`)
 
+    } else {
 
-*/
+        //Search in changed name array
+        changed_name.forEach(elm => {
 
+            //If elm = V5 icon name
+            if(elm["v5"] == keyV5[i]) {
 
-//Icon type in V.5
-let type = ["duotone", "light", "regular", "solid", "brands"];
+                //Render icon
+                compare(keyV5[i], `[ ${ alias(elm["v6"]) } ]`, elm["v6"])
 
-//Print Global Variable
-console.log(v5)
-console.log(v6)
+            }
 
-//Already check array
-var check = []
-
-type.forEach(elm => {
-
-    console.log("//////////////////////////////////////")
-    console.log("//////////////////////////////////////")
-    console.log(`Type : ${elm}`)
-    console.log("//////////////////////////////////////")
-    console.log("//////////////////////////////////////")
-
-    console.log(Object.keys(v5[elm]))
-    console.log(Object.keys(v5[elm]).length)
-
-    //Each icon of a type
-    for(let i = 0; i < 50; i++) { //Object.keys(v5[elm]).length
-
+        })
         
-        //If item in check
-        if(!check.includes(Object.keys(v5[elm])[i])){
-            
-            //New icon so add to array
-            check.push(Object.keys(v5[elm])[i])
-
-            //Get icon name
-            let icon = Object.keys(v5[elm])[i]
-
-            //For each type
-            type.forEach(e => {
-
-                //Si l'iconne existe dans le type
-                if(Object.keys(v5[e]).includes(icon)) {
-
-                    // console.log(`L'icon ${icon} existe en type ${e}`)
-                    
-                    //Si l'icon existe en version 6
-                    if(Object.keys(v6[e]).includes(icon)) {
-
-                        console.log(`L'icon ${icon} en type ${e} existe en version 5 et 6`)
-
-                        //Search id where V5 name == V6 name
-                        indexV6 = Object.keys(v6[e]).findIndex(elm => elm == Object.keys(v5[e])[i])
-
-                        //If V5 différent de V6
-                        if(Object.values(v5[e])[i][4] != indexV6[4]) {
-
-                            compare(icon, e)
-
-                        }
-
-                    } else {
-
-                        console.log(`L'icon ${icon} en type ${e} existe seulement en version 5`)
-
-                        //Render icon
-                        notAvailable(icon, e)
-
-                    }
-                    
-                }  else {
-
-                    console.log(`L'icon ${icon} n'existe pas en type ${e}`)
-                    compare(".", e)
-
-                }
-
-            })
-    }
-
 
     }
 
-})
+
+}
 
 
 //Display icon in right section
-function notAvailable(item, type) {
+function notAvailable(item) {
 
-    let container = document.getElementById('notAvailable');
-    let icon = `./assets/fontawesome-pro-5/svgs/${type}/${item}.svg`
+    Object.keys(v5).forEach(type => {
 
-    let elm = document.createElement("img");
-    elm.src = icon
+        let container = document.getElementById('notAvailable');
+        let icon = `./assets/fontawesome-pro-5/svgs/${type}/${item}.svg`
 
-    elm.style.width = "20px"
-    elm.style.height = "20px"
-    elm.classList.add("p-1")
+        let elm = document.createElement("img");
+        elm.src = icon
 
-    container.appendChild(elm)
+        elm.style.width = "20px"
+        elm.style.height = "20px"
+        elm.classList.add("p-1")
+
+        container.appendChild(elm)
+    
+    })
 
 }
 
 //Display icon in both version
-function compare(item, type) {
+function compare(old, alias = "", ne = old) {
 
-    var container5 = document.getElementById(`${type}`)
-    var container6 = document.getElementById(`${type}6`)
+    Object.keys(v5).forEach(type => {
 
-
-    if(item == ".") {
-
-        let elm = document.createElement("h1")
-        elm.innerHTML = "."
-        elm.style.height = "40px"
-        elm.classList.add("my-3")
-
-
-        let elm2 = document.createElement("h1")
-        elm2.innerHTML = "."
-        elm2.style.height = "40px"
-        elm2.classList.add("my-3")
+        var container5 = document.getElementById(`${type}`)
+        var container6 = document.getElementById(`${type}6`)
     
-
-        container5.appendChild(elm)
-        container6.appendChild(elm2)
-
-    } else {
-
-        let icon5 = `./assets/fontawesome-pro-5/svgs/${type}/${item}.svg`
+    
+        let icon5 = `./assets/fontawesome-pro-5/svgs/${type}/${old}.svg`
         let elm5 = document.createElement("img")
         elm5.src = icon5
     
-        let icon6 = `./assets/fontawesome-pro-6.0.0-web/svgs/${type}/${item}.svg`
+        let icon6 = `./assets/fontawesome-pro-6.0.0-web/svgs/${type}/${ne}.svg`
         let elm6 = document.createElement("img")
         elm6.src = icon6
     
     
         elm5.style.height = "40px"
-        elm5.classList.add("my-3")
+        elm5.style.width = "40px"
+        elm5.classList.add("my-4")
         elm6.style.height = "40px"
-        elm6.classList.add("my-3")
+        elm6.classList.add("my-4")
     
         container5.appendChild(elm5)
         container6.appendChild(elm6)
 
-    }
+    })
+
+    //Add name
+    var containerName5 = document.getElementById(`name`)
+    
+    let name = document.createElement("h5")
+    name.innerHTML = old
+    
+    name.classList.add("my-4")
+    name.style.height = "40px"
+
+    containerName5.appendChild(name)
+
+    var containerName6 = document.getElementById(`name6`)
+    
+    let name6 = document.createElement("h5")
+    name6.innerHTML = ne + " " + alias
+    
+    name6.classList.add("my-4")
+    name6.style.height = "40px"
+    name6.style.width = "15rem"
+
+    containerName6.appendChild(name6)
+
+
+    //Add Thin icon
+    var containerThin = document.getElementById(`thin6`)
+    
+    let iconThin = `./assets/fontawesome-pro-6.0.0-web/svgs/thin/${ne}.svg`
+    let thin = document.createElement("img")
+    thin.src = iconThin
+    
+    thin.style.height = "40px"
+    thin.classList.add("my-4")
+
+    containerThin.appendChild(thin)
+
 }
