@@ -87,7 +87,7 @@ type.forEach(elm => {
     console.log(Object.keys(v5[elm]).length)
 
     //Each icon of a type
-    for(let i = 0; i < 450; i++) { //Object.keys(v5[elm]).length
+    for(let i = 0; i < 50; i++) { //Object.keys(v5[elm]).length
 
         
         //If item in check
