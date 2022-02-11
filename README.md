@@ -1,5 +1,5 @@
 Comparaison icones V5 et V6 FontAwesome.
 
 
-Par défaut, on traite les 50 premières icônes.
-Pour modifier le nombre d'icônes traité il faut modifier la valeur maximale dans la `boucle fort` du fichier `app.js` (ligne 90).
+Par défaut, on traite les 200 premières icônes.
+Pour modifier le nombre d'icônes traité il faut modifier la valeur maximale dans la `boucle fort` du fichier `app.js` (ligne 24).
