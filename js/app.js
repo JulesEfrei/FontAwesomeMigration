@@ -4,11 +4,20 @@ var not_found_count = 0
 var type = ["regular", "solid", "duotone", "light"]
 
 
+
 if(Object.keys(custom).length == 0) {
-    console.log("V5")
-    scan(v5)
+
+    let keyV5 = Object.keys(v5)
+    let valueV5 = Object.values(v5)
+
+
+    console.log("Full icon list (V5)")
+
+    scan(Object.keys(v5))
+
+
 } else {
-    console.log("Custom")
+    console.log("Custom list")
     scan(custom)
 }
 
@@ -21,6 +30,8 @@ function exist(icon){
 
 }
 
+
+
 //Search alias
 function alias(icon) {
 
@@ -29,24 +40,22 @@ function alias(icon) {
 }
 
 
+
 function scan(iconList) {
 
 
-    let keyV5 = Object.keys(iconList)
     let keyV6 = Object.keys(v6)
-
-    let valueV5 = Object.values(iconList)
     let valueV6 = Object.values(v6)
 
 
     //Each icon
-    for(let i = 0; i < keyV5.length; i++) { //keyV5.length
+    for(let i = 0; i < iconList.length; i++) { //keyV5.length
 
         //If V5 name = V6 name
-        if(exist(keyV5[i]) != -1) {
+        if(exist(iconList[i]) != -1) {
 
             //Render icon
-            compare(keyV5[i], `[ ${ alias(keyV5[i]) } ]`)
+            compare(iconList[i], `[ ${ alias(iconList[i]) } ]`)
             equal_count ++
 
         } else {
@@ -57,10 +66,10 @@ function scan(iconList) {
             changed_name.forEach(elm => {
 
                 //If elm = V5 icon name
-                if(elm["v5"] == keyV5[i]) {
+                if(elm["v5"] == iconList[i]) {
 
                     //Render icon
-                    compare(keyV5[i], `[ ${ alias(elm["v6"]) } ]`, elm["v6"])
+                    compare(iconList[i], `[ ${ alias(elm["v6"]) } ]`, elm["v6"])
                     find = true
                     change_count ++
 
@@ -71,7 +80,7 @@ function scan(iconList) {
             //If not found
             if(find == false) {
 
-                notAvailable(keyV5[i])
+                notAvailable(iconList[i])
                 not_found_count ++
             }
 
@@ -81,7 +90,7 @@ function scan(iconList) {
 
     }
 
-    console.log(`Theoric : ${keyV5.length }`)
+    console.log(`Theoric : ${iconList.length }`)
     console.log(`Equal : ${ equal_count }`)
     console.log(`Change : ${ change_count }`)
     console.log(`Not found : ${ not_found_count }`)
@@ -89,8 +98,6 @@ function scan(iconList) {
 
 
 }
-
-
 
 
 
@@ -114,6 +121,8 @@ function notAvailable(item) {
     })
 
 }
+
+
 
 //Display icon in both version
 function compare(old, alias = "", ne = old) {

@@ -1,21 +1,20 @@
-Comparaison icones V5 et V6 FontAwesome.
+# Comparaison icones V5 et V6 FontAwesome.
 
-
-Par défaut, on traite les 200 premières icônes.
-Pour modifier le nombre d'icônes traité il faut modifier la valeur maximale dans la `boucle fort` du fichier `app.js` (ligne 24).
+    /!\ Si la comparaison est lancée avec tous les icônes de la V5 le temps de chargement peut être long.
 
 
 # Comparaison avec une liste d'icônes définit
 
+Vous pouvez faire la comparaison d'icônes de la version 5 et 6 seulement avec les icônes que vous définissez.
+Pour cela, dans le fichier `js/custom.js`, ajouter le nom des icônes à tester dans le tableau :
+
 ```javascript
 
-//Format de la variable
-
-    var custom = {
-        "nom_icone": "propriété",
-        "nom_icone2": "propriété",
-        "nom_icone3": "propriété",
+    var custom = [
+        "cactus",
+        "abacus",
+        "ad",
         // ...
-    }
+    ]
 
 ```
