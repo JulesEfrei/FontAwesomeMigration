@@ -109,7 +109,7 @@ function notAvailable(item) {
         let elm = document.createElement("img");
         elm.loading = "lazy"
         elm.src = icon
-
+        
         elm.style.width = "40px"
         elm.style.height = "40px"
         elm.classList.add("p-2")
