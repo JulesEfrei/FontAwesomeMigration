@@ -7,18 +7,15 @@ var type = ["regular", "solid", "duotone", "light"]
 
 if(Object.keys(custom).length == 0) {
 
-    let keyV5 = Object.keys(v5)
-    let valueV5 = Object.values(v5)
-
-
     console.log("Full icon list (V5)")
-
     scan(Object.keys(v5))
 
 
 } else {
+
     console.log("Custom list")
     scan(custom)
+
 }
 
 
@@ -110,6 +107,7 @@ function notAvailable(item) {
         let icon = `./assets/fontawesome-pro-5/svgs/${type}/${item}.svg`
 
         let elm = document.createElement("img");
+        elm.loading = "lazy"
         elm.src = icon
 
         elm.style.width = "40px"
@@ -135,10 +133,12 @@ function compare(old, alias = "", ne = old) {
     
         let icon5 = `./assets/fontawesome-pro-5/svgs/${type}/${old}.svg`
         let elm5 = document.createElement("img")
+        elm5.loading = "lazy"
         elm5.src = icon5
     
         let icon6 = `./assets/fontawesome-pro-6.0.0-web/svgs/${type}/${ne}.svg`
         let elm6 = document.createElement("img")
+        elm6.loading = "lazy"
         elm6.src = icon6
     
     
@@ -181,6 +181,7 @@ function compare(old, alias = "", ne = old) {
     
     let iconThin = `./assets/fontawesome-pro-6.0.0-web/svgs/thin/${ne}.svg`
     let thin = document.createElement("img")
+    thin.loading = "lazy"
     thin.src = iconThin
     
     thin.style.height = "40px"
