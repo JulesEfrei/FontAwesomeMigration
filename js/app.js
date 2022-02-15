@@ -1,83 +1,103 @@
 var change_count = 0
 var equal_count = 0
 var not_found_count = 0
+var type = ["regular", "solid", "duotone", "light"]
+
+
+if(Object.keys(custom).length == 0) {
+    console.log("V5")
+    scan(v5)
+} else {
+    console.log("Custom")
+    scan(custom)
+}
+
 
 
 //Search icon by name in v6
 function exist(icon){
 
-    return keyV6.findIndex(elm => elm == icon)
+    return Object.keys(v6).findIndex(elm => elm == icon)
 
 }
 
 //Search alias
 function alias(icon) {
 
-    return Object.values(v6["regular"])[exist(icon)][2]
+    return Object.values(v6)[exist(icon)][2]
 
 }
 
 
-let keyV5 = Object.keys(v5["regular"])
-let keyV6 = Object.keys(v6["regular"])
-
-let valueV5 = Object.values(v5["regular"])
-let valueV6 = Object.values(v6["regular"])
+function scan(iconList) {
 
 
-//Each icon
-for(let i = 0; i < keyV5.length; i++) { //keyV5.length
+    let keyV5 = Object.keys(iconList)
+    let keyV6 = Object.keys(v6)
 
-    //If V5 name = V6 name
-    if(exist(keyV5[i]) != -1) {
+    let valueV5 = Object.values(iconList)
+    let valueV6 = Object.values(v6)
 
-        //Render icon
-        compare(keyV5[i], `[ ${ alias(keyV5[i]) } ]`)
-        equal_count ++
 
-    } else {
+    //Each icon
+    for(let i = 0; i < keyV5.length; i++) { //keyV5.length
 
-        let find = false
+        //If V5 name = V6 name
+        if(exist(keyV5[i]) != -1) {
 
-        //Search in changed name array
-        changed_name.forEach(elm => {
+            //Render icon
+            compare(keyV5[i], `[ ${ alias(keyV5[i]) } ]`)
+            equal_count ++
 
-            //If elm = V5 icon name
-            if(elm["v5"] == keyV5[i]) {
+        } else {
 
-                //Render icon
-                compare(keyV5[i], `[ ${ alias(elm["v6"]) } ]`, elm["v6"])
-                find = true
-                change_count ++
+            let find = false
 
+            //Search in changed name array
+            changed_name.forEach(elm => {
+
+                //If elm = V5 icon name
+                if(elm["v5"] == keyV5[i]) {
+
+                    //Render icon
+                    compare(keyV5[i], `[ ${ alias(elm["v6"]) } ]`, elm["v6"])
+                    find = true
+                    change_count ++
+
+                }
+
+            })
+
+            //If not found
+            if(find == false) {
+
+                notAvailable(keyV5[i])
+                not_found_count ++
             }
 
-        })
 
-        //If not found
-        if(find == false) {
-
-            notAvailable(keyV5[i])
-            not_found_count ++
         }
-        
+
 
     }
 
+    console.log(`Theoric : ${keyV5.length }`)
+    console.log(`Equal : ${ equal_count }`)
+    console.log(`Change : ${ change_count }`)
+    console.log(`Not found : ${ not_found_count }`)
+    console.log(`Absolute : ${ equal_count + change_count + not_found_count }`)
+
 
 }
 
-console.log(`Theoric : ${keyV5.length }`)
-console.log(`Equal : ${ equal_count }`)
-console.log(`Change : ${ change_count }`)
-console.log(`Not found : ${ not_found_count }`)
-console.log(`Absolute : ${ equal_count + change_count + not_found_count }`)
+
+
 
 
 //Display icon in right section
 function notAvailable(item) {
 
-    Object.keys(v5).forEach(type => {
+    type.forEach(type => {
 
         let container = document.getElementById('notAvailable');
         let icon = `./assets/fontawesome-pro-5/svgs/${type}/${item}.svg`
@@ -98,7 +118,7 @@ function notAvailable(item) {
 //Display icon in both version
 function compare(old, alias = "", ne = old) {
 
-    Object.keys(v5).forEach(type => {
+    type.forEach(type => {
 
         var container5 = document.getElementById(`${type}`)
         var container6 = document.getElementById(`${type}6`)

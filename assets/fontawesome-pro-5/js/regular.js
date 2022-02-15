@@ -1978,4 +1978,6 @@
     defineIcons('far', icons);
   });
 
+  v5 = icons
+
 }());

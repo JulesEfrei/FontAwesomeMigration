@@ -3077,4 +3077,6 @@
     defineIcons('fa-regular', icons);
   });
 
+  v6 = icons
+
 }());
