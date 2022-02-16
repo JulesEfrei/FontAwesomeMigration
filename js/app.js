@@ -4,14 +4,14 @@ var not_found_count = 0
 var type = ["regular", "solid", "duotone", "light"]
 
 
-
-if(Object.keys(custom).length == 0) {
+// Witch list to compare
+if(Object.keys(custom).length == 0) { //If custom list is empty, use v5 list
 
     console.log("Full icon list (V5)")
     scan(Object.keys(v5))
 
 
-} else {
+} else { //Use custom list
 
     console.log("Custom list")
     scan(custom)
@@ -20,7 +20,7 @@ if(Object.keys(custom).length == 0) {
 
 
 
-//Search icon by name in v6
+//Find icon index by name in v6
 function exist(icon){
 
     return Object.keys(v6).findIndex(elm => elm == icon)
@@ -29,7 +29,7 @@ function exist(icon){
 
 
 
-//Search alias
+//Search alias by name in v6
 function alias(icon) {
 
     return Object.values(v6)[exist(icon)][2]
@@ -37,13 +37,8 @@ function alias(icon) {
 }
 
 
-
+// Main function
 function scan(iconList) {
-
-
-    let keyV6 = Object.keys(v6)
-    let valueV6 = Object.values(v6)
-
 
     //Each icon
     for(let i = 0; i < iconList.length; i++) {
@@ -103,17 +98,21 @@ function notAvailable(item) {
 
     type.forEach(type => {
 
+        //Get container & set url
         let container = document.getElementById('notAvailable');
         let icon = `./assets/fontawesome-pro-5/svgs/${type}/${item}.svg`
 
+        //Create img element & add properties
         let elm = document.createElement("img");
         elm.loading = "lazy"
         elm.src = icon
-        
+
+        //Set style on img element
         elm.style.width = "40px"
         elm.style.height = "40px"
         elm.classList.add("p-2")
 
+        //Add img to the container
         container.appendChild(elm)
     
     })
@@ -127,56 +126,61 @@ function compare(old, alias = "", ne = old) {
 
     type.forEach(type => {
 
+        //Get containers
         var container5 = document.getElementById(`${type}`)
         var container6 = document.getElementById(`${type}6`)
     
-    
+        //Create v5 element
         let icon5 = `./assets/fontawesome-pro-5/svgs/${type}/${old}.svg`
         let elm5 = document.createElement("img")
         elm5.loading = "lazy"
         elm5.src = icon5
     
+        //Create v6 element
         let icon6 = `./assets/fontawesome-pro-6.0.0-web/svgs/${type}/${ne}.svg`
         let elm6 = document.createElement("img")
         elm6.loading = "lazy"
         elm6.src = icon6
     
-    
+        
+        //Add style to img elements 
         elm5.style.height = "40px"
         elm5.style.width = "40px"
         elm5.classList.add("my-4")
         elm6.style.height = "40px"
         elm6.classList.add("my-4")
     
+        //Add elements to containers 
         container5.appendChild(elm5)
         container6.appendChild(elm6)
 
     })
 
     //Add name
+
+    //Get container
     var containerName5 = document.getElementById(`name`)
-    
-    let name = document.createElement("h5")
-    name.innerHTML = old
-    
-    name.classList.add("my-4")
-    name.style.height = "40px"
-
-    containerName5.appendChild(name)
-
     var containerName6 = document.getElementById(`name6`)
     
+    //Create h5 element and add content
+    let name = document.createElement("h5")
+    name.innerHTML = old
     let name6 = document.createElement("h5")
     name6.innerHTML = ne + " " + alias
     
+    //Add style
+    name.classList.add("my-4")
+    name.style.height = "40px"
     name6.classList.add("my-4")
     name6.style.height = "40px"
     name6.style.width = "15rem"
 
+    //Add elements to containers
+    containerName5.appendChild(name)
     containerName6.appendChild(name6)
 
 
-    //Add Thin icon
+    //Add Thin icon for v6
     var containerThin = document.getElementById(`thin6`)
     
     let iconThin = `./assets/fontawesome-pro-6.0.0-web/svgs/thin/${ne}.svg`

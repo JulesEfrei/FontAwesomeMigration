@@ -377,6 +377,10 @@ var changed_name = [
     },
     {
         "v5": "bus-alt",
+        "v6": "bus"
+    },
+    {
+        "v5": "bus",
         "v6": "bus-simple"
     },
     {
@@ -1209,7 +1213,7 @@ var changed_name = [
     },
     {
         "v5": "home",
-        "v6": "house"
+        "v6": "house-chimney"
     },
     {
         "v5": "home-alt",
@@ -1548,6 +1552,10 @@ var changed_name = [
         "v6": "mobile-screen-button"
     },
     {
+        "v5": "mobile",
+        "v6": "mobile-button"
+    },
+    {
         "v5": "mobile-android",
         "v6": "mobile"
     },
@@ -1876,6 +1884,10 @@ var changed_name = [
         "v6": "scanner"
     },
     {
+        "v5": "scanner",
+        "v6": "scanner-gun"
+    },
+    {
         "v5": "search",
         "v6": "magnifying-glass"
     },
@@ -1916,8 +1928,12 @@ var changed_name = [
         "v6": "share-from-square"
     },
     {
-        "v5": "shield-alt",
+        "v5": "shield",
         "v6": "shield-blank"
+    },
+    {
+        "v5": "shield-alt",
+        "v6": "shield"
     },
     {
         "v5": "shipping-fast",
