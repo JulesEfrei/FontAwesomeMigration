@@ -1,5 +1,5 @@
 var custom = [
-    //Icon name
+    // Icon name
     "abacus",
     "acorn",
     "album-collection",

@@ -46,44 +46,44 @@ function scan(iconList) {
 
 
     //Each icon
-    for(let i = 0; i < iconList.length; i++) { //keyV5.length
+    for(let i = 0; i < iconList.length; i++) {
 
-        //If V5 name = V6 name
-        if(exist(iconList[i]) != -1) {
+        let find = false
 
-            //Render icon
-            compare(iconList[i], `[ ${ alias(iconList[i]) } ]`)
-            equal_count ++
+        //Search in changed name array
+        changed_name.forEach(elm => {
 
-        } else {
+            //If elm = V5 icon name
+            if(elm["v5"] == iconList[i]) {
+    
+                //Render icon
+                compare(iconList[i], `[ ${ alias(elm["v6"]) } ]`, elm["v6"])
+                find = true
+                change_count ++
 
-            let find = false
-
-            //Search in changed name array
-            changed_name.forEach(elm => {
-
-                //If elm = V5 icon name
-                if(elm["v5"] == iconList[i]) {
-
-                    //Render icon
-                    compare(iconList[i], `[ ${ alias(elm["v6"]) } ]`, elm["v6"])
-                    find = true
-                    change_count ++
-
-                }
-
-            })
-
-            //If not found
-            if(find == false) {
-
-                notAvailable(iconList[i])
-                not_found_count ++
+    
             }
 
+        })
 
+        //If not found
+        if(find == false) {
+
+            //If V5 name = V6 name
+            if(exist(iconList[i]) != -1) {
+    
+                //Render icon
+                compare(iconList[i], `[ ${ alias(iconList[i]) } ]`)
+                equal_count ++
+    
+            } else {
+    
+                notAvailable(iconList[i])
+                not_found_count ++
+    
+            }
+            
         }
-
 
     }
 

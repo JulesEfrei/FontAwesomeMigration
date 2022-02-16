@@ -272,6 +272,10 @@ var changed_name = [
         "v6": "baseball"
     },
     {
+        "v5": "baseball",
+        "v6": "baseball-bat-ball"
+    },
+    {
         "v5": "basketball-ball",
         "v6": "basketball"
     },
