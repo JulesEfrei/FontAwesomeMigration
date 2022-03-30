@@ -57,5 +57,4 @@ var custom = [
     "kite",
     "laptop",
     "laptop-house",
-    "lightbulb-on",
 ]
