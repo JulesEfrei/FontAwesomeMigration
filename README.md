@@ -13,7 +13,7 @@
 <br />
 <div align="center">
   
-  <img src="https://efrei365net-my.sharepoint.com/:i:/g/personal/jules_bruzeau_efrei_net/Efo-968ovTVBgDIoFw0ru9kBlngu2lAySJ1UGaMTO5hE5Q?e=GXekC1" alt="Logo" width="80" height="80" />
+  <img src="blob:https://efrei365net-my.sharepoint.com/0184ea32-6fff-4269-af5a-323301af1a75" alt="Logo" width="80" height="80" />
 
   <h2 align="center">FontAwesome V5 To V6 Comparaison</h2>
 
