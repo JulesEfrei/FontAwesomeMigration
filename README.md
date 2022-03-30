@@ -130,7 +130,7 @@ Here is the roadmap of the project. Checked flags mean the features is out and u
 
 - [x] Release a fonctional application
 - [x] Add custom icons list feature
-- [] Increase images loading speed
+- [ ] Increase images loading speed
 
 See the [open issues](https://github.com/JulesEfrei/FontAwesomeMigration/issues) for a full list of proposed features (and known issues).
 
@@ -203,4 +203,4 @@ Distributed under the MIT License. See `LICENSE.txt` for more information. If no
 [license-url]: https://github.com/JulesEfrei/FontAwesomeMigration/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jules-bruzeau/
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: https://drive.google.com/uc?export=view&id=1JG3lMiQs9ElDVjHHGbvmejqyEzRs7wku
