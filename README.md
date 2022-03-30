@@ -13,8 +13,7 @@
 <br />
 <div align="center">
   
-  <img src="https://drive.google.com/file/d/1r-jF3BzDkdkFfINkQbTOpzsJgt97RjZB/view?usp=sharing" alt="Logo" width="80" height="80" />
-  <img src="https://drive.google.com/uc?export=view&id=1r-jF3BzDkdkFfINkQbTOpzsJgt97RjZB" alt="Logo" width="80" height="80" />
+  <img src="https://drive.google.com/uc?export=view&id=1r-jF3BzDkdkFfINkQbTOpzsJgt97RjZB" alt="Logo" width="600" height="315" />
 
   <h2 align="center">FontAwesome V5 To V6 Comparaison</h2>
 
