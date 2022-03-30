@@ -64,7 +64,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="https://drive.google.com/uc?export=view&id=1JG3lMiQs9ElDVjHHGbvmejqyEzRs7wku" alt="Logo" width="600" height="315" />
 
 Web page to see the FontAwesome icons between version 5 and version 6 of the library.
 
@@ -203,4 +203,3 @@ Distributed under the MIT License. See `LICENSE.txt` for more information. If no
 [license-url]: https://github.com/JulesEfrei/FontAwesomeMigration/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/jules-bruzeau/
-[product-screenshot]: https://drive.google.com/uc?export=view&id=1JG3lMiQs9ElDVjHHGbvmejqyEzRs7wku
