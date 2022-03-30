@@ -13,8 +13,7 @@
 <br />
 <div align="center">
   
-  <img src="https://efrei365net-my.sharepoint.com/:i:/g/personal/jules_bruzeau_efrei_net/Efo-968ovTVBgDIoFw0ru9kBBH-q-N6mcIs4MTqY2XK_Bg?e=uaMQu1" alt="Logo" width="80" height="80" />
-  <img src="https://efrei365net-my.sharepoint.com/:i:/g/personal/jules_bruzeau_efrei_net/Efo-968ovTVBgDIoFw0ru9kBM3noHz39NdNOl6DOlMMtQg?e=UFhyYj" alt="Logo" width="80" height="80" />
+  <img src="https://photos.app.goo.gl/UkrhgtbpJ3yDS1DM8" alt="Logo" width="80" height="80" />
 
   <h2 align="center">FontAwesome V5 To V6 Comparaison</h2>
 
