@@ -128,11 +128,9 @@ If you want to see only the icons you're using, open the `js/custom.js` file and
 
 Here is the roadmap of the project. Checked flags mean the features is out and unchecked flags mean that the feature is comming.
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] Release a fonctional application
+- [x] Add custom icons list feature
+- [] Increase images loading speed
 
 See the [open issues](https://github.com/JulesEfrei/FontAwesomeMigration/issues) for a full list of proposed features (and known issues).
 
